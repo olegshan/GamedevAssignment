@@ -16,6 +16,10 @@ public class WordCounter {
     }
 
     public synchronized int getWordCount(String word) {
-        return map.get(word.toLowerCase());
+        try {
+            return map.get(word.toLowerCase());
+        } catch (NullPointerException e) {
+            throw new IllegalArgumentException("No such word in the list");
+        }
     }
 }

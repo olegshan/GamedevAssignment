@@ -37,4 +37,9 @@ public class WordCounterTest {
         assertTrue(wc.getWordCount("rabbit") == 100000);
         assertTrue(wc.getWordCount("FOX") == 100000);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getWordCountWhenWordIsNotFound() throws Exception {
+        wc.getWordCount("Cat");
+    }
 }
